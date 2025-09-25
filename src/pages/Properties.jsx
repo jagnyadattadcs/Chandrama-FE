@@ -11,7 +11,7 @@ export default function PropertyComponent() {
   useEffect(() => {
     const fetchProperties = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/plots");
+        const res = await axios.get("https://chandramarealconbackend.onrender.com/api/plots");
         setProperties(res.data.plots || []);
       } catch (err) {
         console.error("Error fetching properties:", err);
@@ -25,7 +25,7 @@ export default function PropertyComponent() {
     setLoading(true);
     try {
       const token = localStorage.getItem("token"); // if login is required
-      const res = await axios.get(`http://localhost:5000/api/plots/${id}`, {
+      const res = await axios.get(`https://chandramarealconbackend.onrender.com/api/plots/${id}`, {
         headers: token ? { Authorization: `Bearer ${token}` } : {},
       });
       setSelectedProperty(res.data.plot);
